@@ -19,9 +19,9 @@ jobs:
 
       - name: Prepare site files
         run: |
-          mkdir -p _site/物理必修三 _site/assets
+          mkdir -p _site/物理必修三/assets
           cp 物理必修三/*.html _site/物理必修三/
-          cp -r assets/. _site/assets/
+          cp -r 物理必修三/assets/. _site/物理必修三/assets/
 
       - uses: actions/upload-pages-artifact@v5
         with:
