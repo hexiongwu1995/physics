@@ -3,6 +3,8 @@
 #show: mytemplate
 #set heading(numbering: "1.")
 #set par(justify: false)
+#show: page.with(paper:"a4",margin:2cm)
+#show: mytemplate-extras.html-only(page.with(paper:"a3",margin:2cm))
 
 = Introduction <intro>
 
