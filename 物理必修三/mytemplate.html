@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><style>body { margin: 0; font-family: "libertinus serif"; font-size: 11pt; font-weight: 400; font-style: normal; letter-spacing: 0pt; color: light-dark(#000000, var(--mytemplate-dark-000000, #e4e4e4)); }
+:root { color-scheme: light dark; background: Canvas; }
+:root { --mytemplate-dark-frame-filter: invert(1) hue-rotate(180deg); }
+@media (prefers-color-scheme: dark) { mytemplate-frame > svg { filter: var(--mytemplate-dark-frame-filter); } mytemplate-light { display: none !important; } mytemplate-dark { display: contents !important; } }
+code [style="color: #16718d"] { color: light-dark(#16718d, var(--mytemplate-dark-16718d, #16718d)) !important; }
+code [style="color: #198810"] { color: light-dark(#198810, var(--mytemplate-dark-198810, #198810)) !important; }
+code [style="color: #1d6c76"] { color: light-dark(#1d6c76, var(--mytemplate-dark-1d6c76, #24727c)) !important; }
+code [style="color: #301414"] { color: light-dark(#301414, var(--mytemplate-dark-301414, #c19b99)) !important; }
+code [style="color: #4b69c6"] { color: light-dark(#4b69c6, var(--mytemplate-dark-4b69c6, #4b69c6)) !important; }
+code [style="color: #6b6b6f"] { color: light-dark(#6b6b6f, var(--mytemplate-dark-6b6b6f, #6b6b6f)) !important; }
+code [style="color: #74747c"] { color: light-dark(#74747c, var(--mytemplate-dark-74747c, #74747c)) !important; }
+code [style="color: #8b41b1"] { color: light-dark(#8b41b1, var(--mytemplate-dark-8b41b1, #8b41b1)) !important; }
+code [style="color: #b60157"] { color: light-dark(#b60157, var(--mytemplate-dark-b60157, #b60157)) !important; }
+code [style="color: #d73948"] { color: light-dark(#d73948, var(--mytemplate-dark-d73948, #d73948)) !important; }
+mytemplate-frame { display: contents; } mytemplate-frame > svg { max-width: 100%; height: auto !important; }
+a:any-link { text-decoration: none; }
+[data-mytemplate-flow] { margin-block-start: var(--mytemplate-above); margin-block-end: var(--mytemplate-below); }
+[data-mytemplate-flow]:first-child, .mytemplate-shape-paint + [data-mytemplate-flow] { margin-block-start: 0; } [data-mytemplate-flow]:last-child { margin-block-end: 0; }
+[data-mytemplate-flow][data-below=auto]:has(+ .mytemplate-v[data-weak=false]) { margin-block-end: 0; }
+[data-mytemplate-flow][data-below=auto]:has(+ [data-mytemplate-flow][data-above=explicit]), [data-mytemplate-flow][data-below=auto]:has(+ .mytemplate-v + [data-mytemplate-flow][data-above=explicit]) { margin-block-end: 0; }
+[data-mytemplate-flow][data-below=explicit] + [data-mytemplate-flow][data-above=auto], [data-mytemplate-flow][data-below=explicit] + .mytemplate-v + [data-mytemplate-flow][data-above=auto] { margin-block-start: 0; }
+mytemplate-grid-flow { display: flow-root; min-width: 0; }
+@supports not (text-box-trim: trim-both) { .mytemplate-text-block { line-height: normal !important; padding-block-end: 0 !important; } }
+mytemplate-par { display: flow-root; } mytemplate-par > p { margin-block: 0; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+p:has(> [data-fraction]) { display: flex; align-items: baseline; } p:has(> [data-fraction]) > span:not([data-fraction]) { flex: 0 1 auto; min-width: 0; white-space: pre-wrap; }
+p .mytemplate-box { margin-block: calc(var(--mytemplate-leading, 0pt) / 2); }
+mytemplate-image { display: contents; } mytemplate-image[data-size="auto"] > img { max-width: 100%; height: auto; } mytemplate-image[data-size="width"] > img { height: auto; } mytemplate-image[data-size="height"] > img { width: auto; max-width: 100%; object-fit: contain; } mytemplate-image[data-fit="cover"] > img { object-fit: cover; } mytemplate-image[data-fit="contain"] > img { object-fit: contain; } mytemplate-image[data-fit="stretch"] > img { object-fit: fill; }
+body, .mytemplate-page { overflow-x: clip; } .mytemplate-scroll { overflow-x: auto; overflow-y: hidden; padding: calc(0.25em + var(--mytemplate-bleed)) var(--mytemplate-bleed); margin: calc(-0.25em - var(--mytemplate-bleed)) calc(-1 * var(--mytemplate-bleed)); } .mytemplate-scroll-inline { display: inline-flex; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: var(--mytemplate-bleed); margin: calc(-1 * var(--mytemplate-bleed)); } .mytemplate-scroll-inline > * { flex-shrink: 0; } :is(.mytemplate-scroll, .mytemplate-scroll-inline) :is(.mytemplate-scroll, .mytemplate-scroll-inline) { overflow: visible; padding: 0; margin: 0; max-width: none; } .mytemplate-scroll:not(.mytemplate-scroll *) > pre:first-child, .mytemplate-scroll:not(.mytemplate-scroll *) > :first-child > pre:first-child { margin-top: 0; } .mytemplate-scroll:not(.mytemplate-scroll *) > pre:last-child, .mytemplate-scroll:not(.mytemplate-scroll *) > :last-child > pre:last-child { margin-bottom: 0; } @media print { .mytemplate-scroll, .mytemplate-scroll-inline { overflow: visible; } }
+html { scroll-behavior: smooth; }:root { --mytemplate-toc-progress: 1; }@media (max-width: calc(64rem - 0.02px)) { :root { --mytemplate-toc-progress: 0; } }:root { --mytemplate-toc-width: 17rem; --mytemplate-toc-ease: cubic-bezier(0.22, 0.61, 0.36, 1); --mytemplate-toc-line: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.14)); --mytemplate-toc-surface: light-dark(rgb(252 252 250), rgb(24 24 27)); --mytemplate-toc-muted: light-dark(rgb(82 82 91 / 0.92), rgb(212 212 216 / 0.78)); --mytemplate-toc-ink: light-dark(rgb(24 24 27), rgb(244 244 245)); --mytemplate-toc-accent: light-dark(rgb(37 99 235), rgb(96 165 250)); --mytemplate-toc-highlight: light-dark(rgb(37 99 235 / 0.1), rgb(96 165 250 / 0.18)); } .mytemplate-toc { position: fixed; inset-block: 0; inset-inline-start: 0; z-index: 2147483000; display: flex; flex-direction: column; width: min(var(--mytemplate-toc-width), 86vw); box-sizing: border-box; overflow: hidden; touch-action: pan-y; border-inline-end: 1px solid var(--mytemplate-toc-line); background: var(--mytemplate-toc-surface); color: var(--mytemplate-toc-ink); font: 0.875rem/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif; transform: translate3d(calc((var(--mytemplate-toc-progress) - 1) * (100% + 1px)), 0, 0); transition: transform 0.32s var(--mytemplate-toc-ease); } .mytemplate-toc[data-state=closed] { visibility: hidden; transition: transform 0.32s var(--mytemplate-toc-ease), visibility 0s linear 0.32s; } .mytemplate-toc[data-state=open] { visibility: visible; transition: transform 0.32s var(--mytemplate-toc-ease), visibility 0s linear 0s; } .mytemplate-toc[dir=rtl], [dir=rtl] .mytemplate-toc { transform: translate3d(calc((1 - var(--mytemplate-toc-progress)) * (100% + 1px)), 0, 0); } .mytemplate-toc-head { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 0.75rem 0.5rem 1rem; } .mytemplate-toc-title { flex: 1 1 auto; min-width: 0; margin: 0; font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mytemplate-toc-muted); } .mytemplate-toc-list { position: relative; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; margin: 0; padding: 0.25rem 0.5rem 1.25rem; list-style: none; } .mytemplate-toc-list li { margin: 0; } .mytemplate-toc-link { display: block; padding: 0.3rem 0.6rem; border-radius: 0.4rem; padding-inline-start: calc(0.6rem + var(--mytemplate-toc-depth, 0) * 0.8rem); color: var(--mytemplate-toc-muted); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color 0.15s ease, background-color 0.15s ease; } .mytemplate-toc-link:hover, .mytemplate-toc-link:focus-visible { color: var(--mytemplate-toc-ink); background: var(--mytemplate-toc-highlight); } .mytemplate-toc-link[aria-current=location] { color: var(--mytemplate-toc-accent); background: var(--mytemplate-toc-highlight); font-weight: 600; } .mytemplate-toc-toggle { appearance: none; -webkit-appearance: none; margin: 0; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0; border: 1px solid var(--mytemplate-toc-line); border-radius: 0.6rem; background: var(--mytemplate-toc-surface); color: var(--mytemplate-toc-ink); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); box-shadow: 0 6px 18px -10px rgb(0 0 0 / 0.35); cursor: pointer; font: inherit; line-height: 1; } .mytemplate-toc-toggle:hover { background: var(--mytemplate-toc-highlight); } .mytemplate-toc-opener { position: fixed; inset-block-start: 0.75rem; inset-inline-start: 0.75rem; z-index: 2147483001; display: none; } @media (pointer: fine) { .mytemplate-toc-opener { display: block; } .mytemplate-toc[data-state=open] ~ .mytemplate-toc-opener { display: none; } }@media (pointer: coarse) { .mytemplate-toc-close { display: none; } } .mytemplate-toc-backdrop { display: none; } @media (max-width: calc(64rem - 0.02px)) { .mytemplate-toc-backdrop { display: block; position: fixed; inset: 0; z-index: 2147482999; background: rgb(0 0 0 / 0.3); opacity: var(--mytemplate-toc-progress); touch-action: pan-y; pointer-events: none; transition: opacity 0.32s var(--mytemplate-toc-ease); } .mytemplate-toc[data-state=open] ~ .mytemplate-toc-backdrop, .mytemplate-toc-dragging .mytemplate-toc-backdrop { pointer-events: auto; } } .mytemplate-toc-grip { display: none; } @media (pointer: coarse) { .mytemplate-toc-grip { display: block; position: fixed; inset-inline-start: 0; top: 50%; z-index: 2147482998; width: 0.3rem; height: 3rem; transform: translateY(-50%); border-start-end-radius: 999px; border-end-end-radius: 999px; background: var(--mytemplate-toc-muted); opacity: 0.45; pointer-events: none; transition: opacity 0.2s ease; } .mytemplate-toc[data-state=open] ~ .mytemplate-toc-grip { opacity: 0; } } @media (min-width: 64rem) { body { padding-inline-start: calc(var(--mytemplate-toc-progress) * (var(--mytemplate-toc-width) + 1px)); transition: padding-inline-start 0.32s var(--mytemplate-toc-ease); } } .mytemplate-toc-dragging, .mytemplate-toc-dragging body, .mytemplate-toc-dragging .mytemplate-toc, .mytemplate-toc-dragging .mytemplate-toc-backdrop { transition: none !important; } .mytemplate-toc-dragging .mytemplate-toc { visibility: visible; } .mytemplate-toc-dragging .mytemplate-toc-opener, .mytemplate-toc-dragging .mytemplate-toc-close { display: none !important; } @media (prefers-reduced-motion: reduce) { .mytemplate-toc, .mytemplate-toc-backdrop, body { transition-duration: 0.001s !important; } html { scroll-behavior: auto !important; } } @media print { .mytemplate-toc, .mytemplate-toc-opener, .mytemplate-toc-backdrop, .mytemplate-toc-grip { display: none !important; } body { padding-inline-start: 0 !important; } }</style><nav class="mytemplate-toc" id="mytemplate-toc" data-state="open" aria-label="Contents"><div class="mytemplate-toc-head"><p class="mytemplate-toc-title">Contents</p><button class="mytemplate-toc-toggle mytemplate-toc-close" type="button" aria-controls="mytemplate-toc" aria-expanded="true" aria-label="Close navigation" title="Close navigation">✕</button></div><ol class="mytemplate-toc-list" id="mytemplate-toc-list"></ol></nav><div class="mytemplate-toc-opener"><button class="mytemplate-toc-toggle mytemplate-toc-open" type="button" aria-controls="mytemplate-toc" aria-expanded="false" aria-label="Open navigation" title="Open navigation">☰</button></div><div class="mytemplate-toc-backdrop" aria-hidden="true"></div><div class="mytemplate-toc-grip" aria-hidden="true"></div><script>(function () {
+  var nav = document.querySelector('.mytemplate-toc');
+  if (!nav) return;
+  var root = document.documentElement;
+  var openButton = document.querySelector('.mytemplate-toc-open');
+  var closeButton = nav.querySelector('.mytemplate-toc-close');
+  var backdrop = document.querySelector('.mytemplate-toc-backdrop');
+  var list = nav.querySelector('.mytemplate-toc-list');
+  var wide = window.matchMedia('(min-width: 64rem)');
+  var coarse = window.matchMedia('(pointer: coarse)');
+  var progress = wide.matches ? 1 : 0;
+  var chosen = false;
+  var links = [];
+  var minimum = 6;
+  // The outline item the reader followed and the scroll position it settled
+  // at. While an item is pinned it stays highlighted, so the highlight matches
+  // the jump even when the page ends before the heading can reach the top.
+  var pinned = null;
+  var pinY = null;
+  var pinTimer = 0;
+
+  function apply(value, animate) {
+    progress = Math.max(0, Math.min(1, value));
+    if (!animate) root.classList.add('mytemplate-toc-dragging');
+    root.style.setProperty('--mytemplate-toc-progress', String(progress));
+    if (animate) {
+      root.classList.remove('mytemplate-toc-dragging');
+      var open = progress > 0.5;
+      nav.setAttribute('data-state', open ? 'open' : 'closed');
+      if ('inert' in nav) nav.inert = !open;
+    }
+    if (openButton) openButton.setAttribute('aria-expanded', String(progress > 0.5));
+    if (closeButton) closeButton.setAttribute('aria-expanded', String(progress > 0.5));
+  }
+
+  function toggle(open) {
+    chosen = true;
+    apply(open ? 1 : 0, true);
+  }
+
+  apply(progress, true);
+
+  if (openButton) openButton.addEventListener('click', function () { toggle(true); });
+  if (closeButton) closeButton.addEventListener('click', function () { toggle(false); });
+  if (backdrop) backdrop.addEventListener('click', function () { toggle(false); });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && progress > 0.5) toggle(false);
+  });
+
+  wide.addEventListener('change', function () {
+    if (!chosen) apply(wide.matches ? 1 : 0, true);
+  });
+
+  // Move the highlight to one item and keep it in view.
+  function mark(active) {
+    var changed = false;
+    for (var j = 0; j < links.length; j++) {
+      var isActive = links[j] === active;
+      if (isActive && links[j].link.getAttribute('aria-current') !== 'location') {
+        links[j].link.setAttribute('aria-current', 'location');
+        changed = true;
+      } else if (!isActive && links[j].link.hasAttribute('aria-current')) {
+        links[j].link.removeAttribute('aria-current');
+      }
+    }
+    if (changed && active) {
+      var top = active.link.offsetTop;
+      if (top < list.scrollTop || top > list.scrollTop + list.clientHeight - 32) {
+        list.scrollTop = Math.max(0, top - 32);
+      }
+    }
+  }
+
+  // Keep the followed item highlighted until the reader moves the page. The
+  // position is captured once the jump has stopped, so the smooth scroll
+  // itself does not count as the reader scrolling away.
+  function pin(item) {
+    mark(item);
+    pinned = item;
+    pinY = null;
+    window.clearTimeout(pinTimer);
+    pinTimer = window.setTimeout(function () { pinY = window.scrollY; }, 200);
+  }
+
+  function follow(item) {
+    item.link.addEventListener('click', function () {
+      if (!wide.matches) toggle(false);
+      pin(item);
+    });
+  }
+
+  function build() {
+    if (!list) return;
+    var found = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    var fragment = document.createDocumentFragment();
+    var used = Object.create(null);
+    for (var i = 0; i < found.length; i++) {
+      var heading = found[i];
+      if (nav.contains(heading)) continue;
+      var level = parseInt(heading.tagName.substring(1), 10);
+      if (level < minimum) minimum = level;
+      if (!heading.id) {
+        var text = (heading.textContent || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        text = text.replace(/^-+/, '').replace(/-+$/, '');
+        var id = text || 'section';
+        var unique = id;
+        var suffix = 2;
+        while (used[unique] || document.getElementById(unique)) { unique = id + '-' + suffix; suffix += 1; }
+        heading.id = unique;
+      }
+      used[heading.id] = true;
+      var item = document.createElement('li');
+      var link = document.createElement('a');
+      link.className = 'mytemplate-toc-link';
+      link.href = '#' + heading.id;
+      var plain = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+      link.textContent = plain;
+      link.style.setProperty('--mytemplate-toc-depth', '0');
+      link.setAttribute('data-level', String(level));
+      item.appendChild(link);
+      fragment.appendChild(item);
+      links.push({ link: link, heading: heading });
+    }
+    list.appendChild(fragment);
+    for (var j = 0; j < links.length; j++) {
+      var depth = parseInt(links[j].link.getAttribute('data-level'), 10) - minimum;
+      links[j].link.style.setProperty('--mytemplate-toc-depth', String(Math.max(0, depth)));
+      follow(links[j]);
+    }
+    if (location.hash) {
+      var name = location.hash.substring(1);
+      try { name = decodeURIComponent(name); } catch (error) {}
+      var target = document.getElementById(name);
+      if (target) {
+        target.scrollIntoView();
+        for (var k = 0; k < links.length; k++) {
+          if (links[k].heading === target) { pin(links[k]); break; }
+        }
+      }
+    }
+    spy();
+  }
+
+  function spy() {
+    if (!links.length || pinned) return;
+    // Following an outline link leaves the heading at the top edge of the
+    // viewport, so the spy has to read from that same edge. A line further
+    // down would make a section shorter than the line hand the highlight to
+    // the next heading as soon as its link is clicked.
+    var line = window.scrollY + 1;
+    var active = links[0];
+    for (var i = 0; i < links.length; i++) {
+      var box = links[i].heading.getBoundingClientRect();
+      if (box.top + window.scrollY <= line) active = links[i];
+      else break;
+    }
+    // At the end of the document the last heading may still sit below the
+    // reading line; mark it anyway so the outline keeps tracking the reader.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      active = links[links.length - 1];
+    }
+    mark(active);
+  }
+
+  // A followed item stays highlighted until the jump has settled and the
+  // reader then moves the page away from where it landed.
+  function track() {
+    if (!pinned) return;
+    if (pinY === null) {
+      window.clearTimeout(pinTimer);
+      pinTimer = window.setTimeout(function () { pinY = window.scrollY; }, 200);
+      return;
+    }
+    if (Math.abs(window.scrollY - pinY) > 2) {
+      pinned = null;
+      pinY = null;
+    }
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { ticking = false; track(); spy(); });
+  }, { passive: true });
+  window.addEventListener('resize', spy);
+
+  // Touch: track one finger, follow it, then snap.
+  var startX = null;
+  var startY = null;
+  var startProgress = 0;
+  var dragDirection = 1;
+  var width = 1;
+  var axis = null;
+  var dragging = false;
+  var suppressClick = false;
+
+  function reset() {
+    startX = null;
+    startY = null;
+    axis = null;
+    startProgress = 0;
+  }
+
+  function start(event) {
+    if (!coarse.matches || event.touches.length !== 1) return;
+    var touch = event.touches[0];
+    if (event.target.closest && event.target.closest('.mytemplate-scroll')) return;
+    if (progress < 0.5 && event.target.closest && event.target.closest('.mytemplate-toc')) return;
+    startX = touch.clientX;
+    startY = touch.clientY;
+    startProgress = progress;
+    // In a right-to-left document the panel lives on the right, so the same
+    // finger motion travels the other way.
+    dragDirection = window.getComputedStyle(root).direction === 'rtl' ? -1 : 1;
+    width = nav.getBoundingClientRect().width || 272;
+    axis = null;
+    dragging = false;
+  }
+
+  function move(event) {
+    if (startX === null || event.touches.length !== 1) return;
+    var touch = event.touches[0];
+    var dx = touch.clientX - startX;
+    var dy = touch.clientY - startY;
+    if (axis === null) {
+      if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+      axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+      if (axis === 'y') { reset(); return; }
+      dragging = true;
+      root.classList.add('mytemplate-toc-dragging');
+    }
+    if (axis !== 'x') return;
+    event.preventDefault();
+    var travel = dragDirection * dx;
+    apply(startProgress + travel / width, false);
+  }
+
+  function end() {
+    if (startX === null) return;
+    var wasDragging = dragging;
+    reset();
+    dragging = false;
+    root.classList.remove('mytemplate-toc-dragging');
+    if (!wasDragging) return;
+    suppressClick = true;
+    window.setTimeout(function () { suppressClick = false; }, 350);
+    chosen = true;
+    var open = progress > 0.5;
+    apply(open ? 1 : 0, true);
+  }
+
+  document.addEventListener('click', function (event) {
+    if (!suppressClick) return;
+    suppressClick = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+
+  document.addEventListener('touchstart', start, { passive: true });
+  document.addEventListener('touchmove', move, { passive: false });
+  document.addEventListener('touchend', end, { passive: true });
+  document.addEventListener('touchcancel', end, { passive: true });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', build);
+  } else {
+    build();
+  }
+})();</script><section class="mytemplate-page" dir="ltr" lang="en" style="box-sizing: border-box; min-width: 0; break-before: page; break-after: page"><div class="mytemplate-page-sheet" style="box-sizing: border-box; position: relative; isolation: isolate; width: 100%; margin-inline: auto; container-type: inline-size; max-width: 595.2755905511812pt"><div class="mytemplate-page-body" style="box-sizing: border-box; display: flow-root; position: relative; min-width: 0; padding-left: 11.9048cqi; padding-right: 11.9048cqi; padding-top: 11.9048cqi; padding-bottom: 11.9048cqi"><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 19.8pt; --mytemplate-below: 8.25pt; display: flow-root"><h2><span style="font-size: 15.4pt; font-weight: 700">1.</span> <span style="font-size: 15.4pt; font-weight: 700">Introduction</span></h2></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 15.839999999999998pt; --mytemplate-below: 8.25pt; display: flow-root"><h3><span style="font-size: 13.2pt; font-weight: 700">1.1.</span> <span style="font-size: 13.2pt; font-weight: 700">Background</span></h3></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 15.839999999999998pt; --mytemplate-below: 8.25pt; display: flow-root"><h4><span style="font-weight: 700">1.1.1.</span> <span style="font-weight: 700">Details</span></h4></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 15.839999999999998pt; --mytemplate-below: 8.25pt; display: flow-root"><h3><span style="font-size: 13.2pt; font-weight: 700">1.2.</span> <span style="font-size: 13.2pt; font-weight: 700">Scope</span></h3></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 19.8pt; --mytemplate-below: 8.25pt; display: flow-root"><h2><span style="font-size: 15.4pt; font-weight: 700">2.</span> <span style="font-size: 15.4pt; font-weight: 700">Methods</span></h2></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 15.839999999999998pt; --mytemplate-below: 8.25pt; display: flow-root"><h3><span style="font-size: 13.2pt; font-weight: 700">2.1.</span> <span style="font-size: 13.2pt; font-weight: 700">Sampling</span></h3></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 19.8pt; --mytemplate-below: 8.25pt; display: flow-root"><h2><span style="font-size: 15.4pt; font-weight: 700">3.</span> <span style="font-size: 15.4pt; font-weight: 700">Results</span></h2></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 15.839999999999998pt; --mytemplate-below: 8.25pt; display: flow-root"><h3><span style="font-size: 13.2pt; font-weight: 700">3.1.</span> <span style="font-size: 13.2pt; font-weight: 700">Measurements</span></h3></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 19.8pt; --mytemplate-below: 8.25pt; display: flow-root"><h2><span style="font-size: 15.4pt; font-weight: 700">4.</span> <span style="font-size: 15.4pt; font-weight: 700">Conclusion</span></h2></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos.</p></mytemplate-par><div data-mytemplate-flow="true" data-above="explicit" data-below="explicit" class="mytemplate-block" style="display: block; position: relative; isolation: isolate; box-sizing: border-box; min-width: 0; --mytemplate-above: 19.8pt; --mytemplate-below: 8.25pt; display: flow-root"><h2><span style="font-size: 15.4pt; font-weight: 700">5.</span> <span style="font-size: 15.4pt; font-weight: 700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</span></h2></div><mytemplate-par data-mytemplate-flow="true" data-above="auto" data-below="auto" style="--mytemplate-above: 13.2pt; --mytemplate-below: 13.2pt; font-family: &quot;libertinus serif&quot;; font-size: 11pt; font-weight: 400; font-style: normal; --mytemplate-leading: 7.15pt; --mytemplate-par-spacing: 13.2pt; line-height: 1.308"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam facete et urbane Stoicos irridente, statua est in quo a nobis philosophia defensa et collaudata est, cum id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et.</p></mytemplate-par></div></div></section></body></html>
